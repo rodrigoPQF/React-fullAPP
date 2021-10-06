@@ -9,7 +9,7 @@ export const DivForm = styled.div`
     background-color: #2d6a4f;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 490px;
+    height: 350px;
     padding: 20px;
     width: 320px;
   }
@@ -137,10 +137,16 @@ export const DivForm = styled.div`
     justify-content: center;
     align-content: center;
     align-items: baseline;
-    padding-top: 10px;
+    padding-top: 25px;
+    margin-top: 35%;
     color: #eee;
     font-size: large;
     font-weight: 600;
+    background-color: #2d6a4f;
+    border-radius: 20px;
+    width: 320px;
+    padding: 20px;
+    margin-left: -20px;
   }
   .resultadoP span {
     color: #081c15;

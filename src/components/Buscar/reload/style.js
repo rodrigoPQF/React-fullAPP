@@ -9,6 +9,7 @@ export const IconDiv = styled.div`
     align-items: center;
     gap: 5px;
     align-self: center;
+    position: relative;
   }
   div.iconFa span {
     font-size: 16px;

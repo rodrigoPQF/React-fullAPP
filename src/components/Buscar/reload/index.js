@@ -1,12 +1,13 @@
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AskCEP, AskLOG } from "..";
 
 import { IconDiv, IconDiv2 } from "./style";
 
-export function Reload() {
+export function Reload(props) {
   const [reload, setReload] = useState(false);
+  console.log(props);
 
   function handleClick() {
     if (reload === true) {

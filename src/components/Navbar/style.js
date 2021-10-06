@@ -58,6 +58,11 @@ export const NavBar = styled.div`
   div .input-label {
     width: 500px;
   }
+
+  .test {
+    text-decoration-line: none;
+    color: black;
+  }
 `;
 
 // Pallete Store

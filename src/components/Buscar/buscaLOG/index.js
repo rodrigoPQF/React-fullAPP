@@ -51,7 +51,6 @@ export function AskLOG() {
                 <div className="subtitle">
                   Vamos encontrar o CEP da sua localização!
                 </div>
-
                 <div className="input-container ic1">
                   <input
                     id="firstname"
@@ -113,7 +112,6 @@ export function AskLOG() {
                     Cidade:
                   </label>
                 </div>
-
                 <input
                   type="submit"
                   placeholder="Enviar"
@@ -128,9 +126,9 @@ export function AskLOG() {
                     console.log(data);
                   }}
                 />
+                <p>{errors.inputCITY?.message}</p>
               </form>
             </DivForm>
-            <p>{errors.inputCITY?.message}</p>
 
             {data ? <Resultado data={data} /> : <div></div>}
           </>
