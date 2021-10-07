@@ -9,7 +9,7 @@ export const DivForm = styled.div`
     background-color: #2d6a4f;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 400px;
+    height: 420px;
     padding: 20px;
     width: 320px;
     position: absolute;
@@ -194,9 +194,10 @@ export const DivForm = styled.div`
     color: #eee;
   }
   p {
-    color: #a4133c;
-    font-size: 1em;
-    font-weight: 600;
+    color: #e58f65;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
   }
   .input2 {
     background-color: #52b788;
@@ -211,26 +212,24 @@ export const DivForm = styled.div`
     width: 60px;
   }
 
-  div.custom-select {
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 35px;
-    width: 80px;
-    margin: 24px -39px 3px 30px;
-  }
   .custom-select select {
     background-color: #52b788;
-    color: white;
-    padding-left: 10px;
+    color: black;
+    padding-left: 5px;
     width: 85px;
-    border-radius: 5px;
+    height: 50px;
+    border-radius: 12px;
     border: none;
-    font-size: 17px;
+    appearance: none;
+    font-size: 12px;
+    font-weight: bold;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
     appearance: button;
+  }
+  .custom-select select:focus,
+  .custom-select select:hover {
     outline: none;
-    overflow: hidden;
+    border: 1px solid #2d6a4f;
   }
 
   .custom-select:hover::before {
@@ -240,10 +239,9 @@ export const DivForm = styled.div`
 
   div select option {
     padding: 30px;
-    border: none;
     font-size: 14px;
-    overflow: hidden;
-    background-color: #95d5b2;
+
     color: #081c15;
+    scrollbar-color: black;
   }
 `;

@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const IconDiv = styled.div`
+  div.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+  }
   div.iconFa {
     display: flex;
     justify-content: center;
@@ -9,7 +17,7 @@ export const IconDiv = styled.div`
     align-items: center;
     gap: 5px;
     align-self: center;
-    position: relative;
+    position: absolute;
   }
   div.iconFa span {
     font-size: 16px;
@@ -38,7 +46,7 @@ export const IconDiv2 = styled.div`
   div.iconFa {
     display: flex;
     justify-content: center;
-    margin-top: 415px;
+    margin-top: 430px;
     flex-direction: column;
     align-items: center;
     gap: 5px;

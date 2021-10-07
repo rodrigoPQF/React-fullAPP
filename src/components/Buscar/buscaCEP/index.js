@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cep from "../../api/buscaCEP";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,14 +6,22 @@ import * as yup from "yup";
 import { DivForm } from "./style";
 
 const schema = yup.object().shape({
-  inputCEP: yup
-    .number()
-    .typeError("Apenas valores númericos !!!")
-    .required("O Nome e obrigatorio"),
+  inputCEP: yup.number().required("O Nome e obrigatorio"),
 });
 
 export function AskCEP() {
   const [cep, setCEP] = useState("");
+  const [erro, setErro] = useState(false);
+  const [valida, setValida] = useState("");
+
+  useEffect(() => {
+    if (isNaN(cep) || cep.length > 8) {
+      setErro(true);
+      setCEP("");
+    } else {
+      setErro(false);
+    }
+  }, [cep]);
 
   const {
     register,
@@ -62,6 +70,9 @@ export function AskCEP() {
               />
 
               <p>{errors.inputCEP?.message}</p>
+              <p>{erro && <p>Deu erro camarada</p>}</p>
+              {console.log(data)}
+
               {cep ? (
                 <div className="resultadoP">
                   <div>

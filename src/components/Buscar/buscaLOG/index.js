@@ -8,14 +8,11 @@ import Resultado from "./resultado";
 
 const schemas = yup
   .object({
-    inputQUERY: yup
-      .string()
-      .typeError("Ops ! Apenas letras ...")
-      .required("Campo obrigatorio"),
+    inputQUERY: yup.string().required("* Campo Logradouro é obrigatório"),
     inputCITY: yup
       .string()
       .typeError("Ops ! Apenas letras ...")
-      .required("Campo obrigatorio"),
+      .required("* Campo Cidade é obrigatório"),
   })
   .required();
 
@@ -23,7 +20,20 @@ export function AskLOG() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [query, setQuery] = useState("");
-  console.log(cidade, estado, query);
+  const [erro, setErro] = useState(false);
+
+  useEffect(() => {
+    console.log(query, "oiii");
+    console.log(isNaN(query));
+    for (let i = 0; i < query.length; i++) {
+      console.log(query[i]);
+      if (isNaN(query[i]) === false) {
+        setErro(true);
+      } else {
+        setErro(false);
+      }
+    }
+  }, [query]);
 
   function handleChange(evt) {
     setEstado(evt.target.value);
@@ -64,6 +74,10 @@ export function AskLOG() {
                     Logradouro
                   </label>
                 </div>
+                <p>{errors.inputQUERY?.message}</p>
+                <p>{erro && <p>Não é permitido números no logradouro</p>}</p>
+                {console.log(erro)}
+
                 <div className="input-container ic2">
                   <input
                     id="cidade"
@@ -73,38 +87,40 @@ export function AskLOG() {
                   />
 
                   <div className="cut2"></div>
+
                   <label htmlFor="cidade" className="placeholderCITY">
                     UF
                   </label>
                   <div className="custom-select">
                     <select value={estado} onChange={handleChange}>
-                      <option value="AC">Acre</option>
-                      <option value="AL">Alagoas</option>
-                      <option value="AP">Amapá</option>
-                      <option value="AM">Amazonas</option>
-                      <option value="BA">Bahia</option>
-                      <option value="CE">Ceará</option>
-                      <option value="DF">Distrito Federal</option>
-                      <option value="ES">Espírito Santo</option>
-                      <option value="GO">Goiás</option>
-                      <option value="MA">Maranhão</option>
-                      <option value="MT">Mato Grosso</option>
-                      <option value="MS">Mato Grosso do Sul</option>
-                      <option value="MG">Minas Gerais</option>
-                      <option value="PA">Pará</option>
-                      <option value="PB">Paraíba</option>
-                      <option value="PR">Paraná</option>
-                      <option value="PE">Pernambuco</option>
-                      <option value="PI">Piauí</option>
-                      <option value="RJ">Rio de Janeiro</option>
-                      <option value="RN">Rio Grande do Norte</option>
-                      <option value="RS">Rio Grande do Sul</option>
-                      <option value="RO">Rondônia</option>
-                      <option value="RR">Roraima</option>
-                      <option value="SC">Santa Catarina</option>
-                      <option value="SP">São Paulo</option>
-                      <option value="SE">Sergipe</option>
-                      <option value="TO">Tocantins</option>
+                      <option selected="Selecionar">Selecionar</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BA</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MT">MT</option>
+                      <option value="MS">MS</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
                     </select>
                   </div>
                   <div className="cutSelect"></div>
@@ -112,6 +128,7 @@ export function AskLOG() {
                     Cidade:
                   </label>
                 </div>
+                <p>{errors.inputCITY?.message}</p>
                 <input
                   type="submit"
                   placeholder="Enviar"
@@ -122,11 +139,8 @@ export function AskLOG() {
                     const single2Value = getValues("inputCITY");
                     setCidade(single2Value);
                     setQuery(singleValue);
-
-                    console.log(data);
                   }}
                 />
-                <p>{errors.inputCITY?.message}</p>
               </form>
             </DivForm>
 

@@ -8,7 +8,6 @@ function Cep(props) {
     fetch(`https://viacep.com.br/ws/${props.cep}/json/`)
       .then((resposta) => resposta.json())
       .then((data) => {
-        console.log(data);
         setData(data);
       })
       .catch((err) => {

@@ -25,11 +25,13 @@ export function Reload(props) {
 
       {reload ? (
         <IconDiv>
-          <div className="iconFa">
-            <button onClick={handleClick}>
-              <FontAwesomeIcon icon={faSync} className="icon" />
-            </button>
-            <span>Mudar modo de pesquisa</span>
+          <div className="container">
+            <div className="iconFa">
+              <button onClick={handleClick}>
+                <FontAwesomeIcon icon={faSync} className="icon" />
+              </button>
+              <span>Mudar modo de pesquisa</span>
+            </div>
           </div>
         </IconDiv>
       ) : (

@@ -5,6 +5,7 @@ function Resultado(props) {
   return (
     <Result>
       <div>
+        <span className="title">Resultado</span>
         {props.data.map((info) => (
           <Ul key={info.cep}>
             <li>
@@ -20,8 +21,12 @@ function Resultado(props) {
               {info.logradouro}
             </li>
             <li>
-              <span>Localidade: </span>
+              <span>Cidade: </span>
               {info.localidade}
+            </li>
+            <li>
+              <span>Estado: </span>
+              {info.uf}
             </li>
             <br />
             <div className="linha"></div>
